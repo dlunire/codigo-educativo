@@ -1,6 +1,6 @@
 # Código Educativo
 
-**Código Educativo** es un programa educativo desarrollado por **Código Entrópico** con el objetivo de compartir conocimientos de programación de manera práctica, progresiva y estructurada. No soy una institución educativa; soy un desarrollador que busca enseñar y guiar a otras personas interesadas en aprender a programar, desde principiantes hasta desarrolladores con experiencia, usando lenguajes modernos y buenas prácticas de desarrollo de software.
+**Código Educativo** es un programa educativo desarrollado por **Código Entrópico** con el objetivo de compartir conocimientos de programación de manera práctica, progresiva y estructurada. No somos una institución educativa; soy un desarrollador que busca enseñar y guiar a otras personas interesadas en aprender a programar, desde principiantes hasta desarrolladores con experiencia, usando lenguajes modernos y buenas prácticas de desarrollo de software.
 
 A través de ejemplos claros, ejercicios prácticos y proyectos reales, **Código Educativo** ofrece un entorno donde el aprendizaje se aplica de inmediato. Los participantes no solo adquieren habilidades técnicas, sino que también comprenden la lógica detrás del desarrollo de software profesional, el uso de frameworks modernos y la construcción de sistemas sólidos y escalables.
 
