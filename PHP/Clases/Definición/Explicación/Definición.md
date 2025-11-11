@@ -1,12 +1,15 @@
 # Tipos de clases en PHP
 
-En PHP existen **tres (03) tipos principales de clases** que se utilizan dependiendo de la lógica de herencia y uso que queramos implementar en nuestro proyecto: **clases abstractas**, **clases regulares** y **clases finales**. A continuación se explican y se muestran ejemplos prácticos para cada caso.
+En PHP existen **tres (03) tipos principales de clases**, que se utilizan según la lógica de herencia y el propósito de uso dentro del proyecto:
+**clases abstractas**, **clases regulares** y **clases finales**.
+A continuación se explican sus características y se presentan ejemplos prácticos.
 
 ---
 
-## 1. Clase Abstracta
+## 1. Clases Abstractas
 
-Una clase abstracta **no puede ser instanciada directamente**, pero sirve como base para que otras clases la extiendan. Es útil cuando queremos definir métodos o propiedades comunes que deben ser heredadas.
+Una **clase abstracta** no puede ser instanciada directamente, pero **sirve como base** para que otras clases la extiendan.
+Es útil cuando se desea definir **propiedades o métodos comunes** que las clases hijas deben heredar o implementar.
 
 ```php
 <?php
@@ -18,30 +21,36 @@ Una clase abstracta **no puede ser instanciada directamente**, pero sirve como b
  */
 abstract class ClaseAbstracta {}
 
-
-# ClaseRegular que extiende la clase abstracta
+/**
+ * ClaseRegular que extiende la clase abstracta.
+ */
 class ClaseRegular extends ClaseAbstracta {}
 
-# ClaseFinal que extiende la clase abstracta
+/**
+ * ClaseFinal que extiende la clase abstracta.
+ */
 final class ClaseFinal extends ClaseAbstracta {}
 ```
 
-> Las clases abstractas se usan como **plantilla base** para otras clases.
+> Las clases abstractas se utilizan como **plantillas base** para otras clases.
 
+---
 
-## 2. Clase Regular
+## 2. Clases Regulares
 
-Una clase regular **puede ser instanciada directamente** y **también puede ser extendida** por otras clases (regulares, finales o abstractas).
+Una **clase regular** puede ser **instanciada directamente** y también **extendida** por otras clases (regulares, finales o abstractas).
 
 ```php
 <?php
 
 /**
  * ClaseRegular
+ * 
+ * Clase que puede ser instanciada y extendida.
  */
 class ClaseRegular {}
 
-/** @var ClaseRegular $instancia */
+/** @var ClaseRegular $instancia Ejemplo de instanciación */
 $instancia = new ClaseRegular();
 
 if ($instancia instanceof ClaseRegular) {
@@ -49,29 +58,33 @@ if ($instancia instanceof ClaseRegular) {
 }
 
 /**
- * La clase puede ser extendida por:
- * - Otra clase final
- * - Otra clase regular
- * - Una clase abstracta
+ * Ejemplos de herencia a partir de una clase regular.
  */
 final class ClaseFinal extends ClaseRegular {}
 class OtraClaseRegular extends ClaseRegular {}
 abstract class ClaseAbstracta extends ClaseRegular {}
 ```
 
-> Las clases regulares son **flexibles**, porque pueden ser instanciadas y heredadas.
+> Las clases regulares son **flexibles**, porque pueden **instanciarse** y **heredarse**.
 
-## 3. Clase Final
+---
 
-Una clase final **puede ser instanciada directamente**, pero **no puede ser extendida**. Se usa cuando queremos impedir la herencia y proteger la implementación de la clase.
+## 3. Clases Finales
+
+Una **clase final** puede ser instanciada directamente, pero **no puede ser extendida**.
+Se utiliza cuando se quiere **proteger la implementación** y evitar que otras clases la modifiquen mediante herencia.
 
 ```php
 <?php
 
-/** ClaseFinal */
+/**
+ * ClaseFinal
+ * 
+ * Clase que no puede ser extendida.
+ */
 final class ClaseFinal {}
 
-/** @var ClaseFinal $instancia */
+/** @var ClaseFinal $instancia Ejemplo de instanciación */
 $instancia = new ClaseFinal();
 
 if ($instancia instanceof ClaseFinal) {
@@ -79,19 +92,29 @@ if ($instancia instanceof ClaseFinal) {
     ## es una instancia de ClaseFinal.
 }
 
-## No se puede extender una clase final.
-## Ejemplo de cómo no hacerse:
+/**
+ * No se puede extender una clase final.
+ * Este ejemplo generaría un error:
+ */
 class OtraClase extends ClaseFinal {} // ❌ Error
 ```
 
-> Las clases finales son ideales para **proteger la implementación** de una clase específica.
+> Las clases finales son ideales para **cerrar la herencia** y **proteger el comportamiento interno** de la clase.
 
 ---
 
 ## Conclusión
 
-* **Clase abstracta:** base que **no se puede instanciar**, solo extender.
-* **Clase regular:** flexible, se puede instanciar y extender.
-* **Clase final:** se puede instanciar, pero **no se puede extender**.
+| Tipo de clase | ¿Se puede instanciar? | ¿Se puede heredar? | Uso principal                    |
+| ------------- | --------------------- | ------------------ | -------------------------------- |
+| **Abstracta** | ❌ No                  | ✅ Sí               | Plantilla base para otras clases |
+| **Regular**   | ✅ Sí                  | ✅ Sí               | Clase flexible, reutilizable     |
+| **Final**     | ✅ Sí                  | ❌ No               | Proteger implementación final    |
 
-Este conocimiento es esencial para diseñar aplicaciones **robustas y escalables**, definiendo correctamente qué clases pueden ser utilizadas y heredadas en tu proyecto.
+---
+
+> **En resumen:**
+>
+> * La **clase abstracta** define un modelo.
+> * La **clase regular** crea estructuras reutilizables.
+> * La **clase final** protege comportamientos definitivos.
